@@ -30,3 +30,16 @@ def create_transaction(request):
         return redirect("url_listing")
 
     return render(request, "counts/form.html", {"form": form})
+
+
+def update(request, pk):
+    data = {}
+    transaction = Transaction.objects.get(pk=pk)
+    form = TransactionForm(request.POST or None, instance=transaction)
+
+    if form.is_valid():
+        form.save()
+        return redirect("url_listing")
+
+    data["form"] = form
+    return render(request, "counts/form.html", data)

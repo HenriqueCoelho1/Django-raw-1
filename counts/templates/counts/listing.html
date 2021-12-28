@@ -10,7 +10,9 @@
     <h2>Listagens</h2>
     <ul>
         {% for tr in transactions %}
-            <li>{{tr.description}} - {{tr.dt_insert}} - ${{tr.value}}</li>
+            <a href="{% url 'url_update' tr.id %}">
+                <li>{{tr.description}} - {{tr.dt_insert}} - ${{tr.value}}</li>
+            </a>
         {% endfor %}
     </ul>
 
