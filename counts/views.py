@@ -42,4 +42,11 @@ def update(request, pk):
         return redirect("url_listing")
 
     data["form"] = form
+    data["transaction"] = transaction
     return render(request, "counts/form.html", data)
+
+
+def delete(request, pk):
+    transaction = Transaction.objects.get(pk=pk)
+    transaction.delete()
+    return redirect("url_listing")
