@@ -8,5 +8,17 @@
 </head>
 <body>
     <h1>Welcome</h1>
+
+
+    <p>Agora sao {{now}}</p>
+    <ul>
+        {% for tr in transactions %}
+            {% if tr == "t1" %}
+                <li><b>{{tr}}</b></li>
+            {% else %}
+                <li>{{tr}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 </body>
 </html>
